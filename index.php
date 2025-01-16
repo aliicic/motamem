@@ -9,7 +9,7 @@
             font-family: Arial, sans-serif;
             padding: 20px;
         }
-        .moteamm {
+        .motamem {
             background-color: yellow;
         }
     </style>
@@ -27,10 +27,10 @@
             $text = $_POST['inputText'];
             //with Preposition
             // $regex = '/(به\s+\S+|از\s+\S+|در\s+\S+|با\s+\S+)/u';
-            // $highlightedText = preg_replace($regex, '<span class="moteamm">$0</span>', $text);
+            // $highlightedText = preg_replace($regex, '<span class="motamem">$0</span>', $text);
 
             $regex = '/(?:به|از|در|با)\s+(\S+)/u'; // فقط متمم را گروه‌بندی می‌کنیم
-            $highlightedText = preg_replace($regex, '<span class="moteamm">$1</span>', $text);
+            $highlightedText = preg_replace($regex, '<span class="motamem">$1</span>', $text);
 
             echo $highlightedText;
         }

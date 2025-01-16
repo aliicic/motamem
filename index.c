@@ -2,7 +2,7 @@
 #include <string.h>
 #include <ctype.h>
 
-void highlightMoteamm(const char *text) {
+void highlightMotamem(const char *text) {
     char word[100];
     const char *delimiters = " \n";
     char *token = strtok((char *)text, delimiters); //  برای تقسیم متن
@@ -30,7 +30,7 @@ int main() {
     fgets(text, sizeof(text), stdin); // خواندن متن از ورودی
 
     printf("خروجی:\n");
-    highlightMoteamm(text); // فراخوانی تابع
+    highlightMotamem(text); // فراخوانی تابع
 
     return 0;
 }
