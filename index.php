@@ -25,8 +25,13 @@
         <?php
         if ($_SERVER["REQUEST_METHOD"] == "POST" && !empty($_POST['inputText'])) {
             $text = $_POST['inputText'];
-            $regex = '/(به\s+\S+|از\s+\S+|در\s+\S+|با\s+\S+)/u';
-            $highlightedText = preg_replace($regex, '<span class="moteamm">$0</span>', $text);
+            //with Preposition
+            // $regex = '/(به\s+\S+|از\s+\S+|در\s+\S+|با\s+\S+)/u';
+            // $highlightedText = preg_replace($regex, '<span class="moteamm">$0</span>', $text);
+
+            $regex = '/(?:به|از|در|با)\s+(\S+)/u'; // فقط متمم را گروه‌بندی می‌کنیم
+            $highlightedText = preg_replace($regex, '<span class="moteamm">$1</span>', $text);
+
             echo $highlightedText;
         }
         ?>
