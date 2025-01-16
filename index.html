@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="http://cdn.font-store.ir/yekan.css">
+    <title>شناسایی متمم</title>
+    <style>
+        body {
+            font-family: 'yekan';
+            padding: 20px;
+
+        }
+        #output {
+            margin-top: 20px;
+            border: 1px solid #ccc;
+            padding: 10px;
+        }
+        .moteamm {
+            background-color: yellow;
+        }
+        *{
+            font-family: 'yekan';
+        }
+       
+    </style>
+</head>
+<body dir="rtl">
+    <h1>شناسایی متمم در متن</h1>
+    <textarea id="inputText" rows="4" cols="50" placeholder="متن خود را اینجا وارد کنید..."></textarea><br>
+    <button onclick="identifyMoteamm()">شناسایی متمم</button>
+    
+    <div id="output"></div>
+    
+    <script>
+        function identifyMoteamm() {
+            const text = document.getElementById('inputText').value;
+            // const regex = /(به\s+(\S+)|از\s+(\S+)|در\s+(\S+))/g;
+            const regex = /(به\s+(\S+)|از\s+(\S+)|در\s+(\S+)|با\s+(\S+))/g;
+            const highlightedText = text.replace(regex, (match, p1, p2) => {
+                return `${match.split(' ')[0]} <span class="moteamm">${p2 || match.split(' ')[1]}</span>`;
+            });
+
+            document.getElementById('output').innerHTML = highlightedText;
+        }
+    </script>
+</body>
+</html>
